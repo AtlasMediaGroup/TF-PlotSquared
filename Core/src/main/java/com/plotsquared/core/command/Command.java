@@ -161,7 +161,7 @@ public abstract class Command {
 
     public boolean hasConfirmation(CommandCaller player) {
         // Confirmation message bypass
-        return this.confirmation && !plotSquaredHandler.isStaff(player);
+        return this.confirmation && !plotSquaredHandler.isAdmin(player);
     }
 
     public List<String> getAliases() {

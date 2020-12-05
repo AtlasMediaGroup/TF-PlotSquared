@@ -8,7 +8,7 @@ buildscript {
         maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
         maven { url = "https://rayzr.dev/repo/" }
         maven { url = "https://repo.dmulloy2.net/nexus/repository/public/" }
-        maven { url = "https://telesphoreo.me/repo/maven" }
+        maven { url = "https://jitpack.io" }
     }
     dependencies {
         classpath("com.github.jengelman.gradle.plugins:shadow:5.0.0")
@@ -91,7 +91,7 @@ subprojects {
         testAnnotationProcessor("org.projectlombok:lombok:1.18.8")
         testImplementation("junit:junit:4.13")
         implementation("org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT")
-        implementation("me.totalfreedom:TotalFreedomMod:2020.11")
+        implementation("com.github.AtlasMediaGroup:TotalFreedomMod:0be2aa7")
     }
 
     configurations.all {

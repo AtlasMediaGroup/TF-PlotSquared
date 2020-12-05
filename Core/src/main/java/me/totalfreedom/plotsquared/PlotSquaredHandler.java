@@ -17,21 +17,21 @@ public class PlotSquaredHandler
     public static final Logger LOGGER = Bukkit.getPluginManager().getPlugin("PlotSquared").getLogger();
     private static Function<Player, Boolean> adminProvider;
 
-    public boolean isStaff(CommandCaller commandCaller)
+    public boolean isAdmin(CommandCaller commandCaller)
     {
         final Player player = getPlayer(commandCaller.toString());
         if (player == null)
         {
             return false;
         }
-        return isStaff(player);
+        return isAdmin(player);
     }
 
     @SuppressWarnings("unchecked")
-    public boolean isStaff(Player player)
+    public boolean isAdmin(Player player)
     {
         TotalFreedomMod tfm = getTFM();
-        return tfm.sl.isStaff(player);
+        return tfm.al.isAdmin(player);
     }
 
     public static Player getPlayer(CommandCaller commandCaller)
@@ -59,7 +59,7 @@ public class PlotSquaredHandler
                 "plots.worldedit.bypass", "plots.area", "plots.grant.add", "plots.debugallowunsafe", "plots.debugroadgen", "plots.debugpaste",
                 "plots.createroadschematic", "plots.merge", "plots.unlink", "plots.area", "plots.setup", "plots.set.flag.other", "plots.reload",
                 "plots.backup", "plots.debug");
-        if (!isStaff(player))
+        if (!isAdmin(player))
         {
             return !permission.startsWith("plots.admin") && !adminOnlyPermissions.contains(permission);
         }
