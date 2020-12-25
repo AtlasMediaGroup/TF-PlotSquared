@@ -1,9 +1,6 @@
 repositories {
     maven { url = "https://jitpack.io" }
     maven { url = "https://mvn.intellectualsites.com/content/repositories/snapshots" }
-    maven { url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
-    maven { url = "https://rayzr.dev/repo/" }
-    maven { url = "https://repo.dmulloy2.net/nexus/repository/public/" }
 }
 def textVersion = "3.0.2"
 
@@ -21,8 +18,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.4.0")
     implementation("org.jetbrains:annotations:20.1.0")
     implementation("org.khelekore:prtree:1.7.0-SNAPSHOT")
-    implementation("org.spigotmc:spigot-api:1.16.1-R0.1-SNAPSHOT")
-    implementation("com.github.AtlasMediaGroup:TotalFreedomMod:0be2aa7")
+    implementation("com.intellectualsites.paster:Paster:1.0.1-SNAPSHOT"){ transitive = false }
 }
 
 sourceCompatibility = 1.8
@@ -81,11 +77,13 @@ shadowJar {
         include(dependency("net.kyori:text-serializer-legacy:3.0.2"))
         include(dependency("net.kyori:text-serializer-plain:3.0.2"))
         include(dependency("org.khelekore:prtree:1.7.0-SNAPSHOT"))
+        include(dependency("com.intellectualsites.paster:Paster:1.0.1-SNAPSHOT"))
     }
     relocate('net.kyori.text', 'com.plotsquared.formatting.text')
     relocate("org.json", "com.plotsquared.json") {
         exclude "org/json/simple/**"
     }
+    relocate('com.intellectualsites.paster', 'com.plotsquared.core.paster')
 }
 
 shadowJar.doLast {
